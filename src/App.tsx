@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
+import Home from "./pages/Home";
 
-const repository = "/template-react";
+const repository = "/";
 
-const Home = () => <>Home</>;
 const Login = () => <>Login</>;
 
 export default function App(): ReactElement {
