@@ -1,0 +1,17 @@
+rm -rf .husky
+rm -rf node_modules
+rm -rf public
+rm -rf src
+rm -rf .env.sample
+rm -rf .eslintignore
+rm -rf .eslintrc.js
+rm -rf .lintstagedrc.json
+rm -rf .prettierignore
+rm -rf .prettierrc
+rm -rf craco.config.js
+rm -rf package.json
+rm -rf tsconfig.json
+rm -rf tsconfig.paths.json
+rm -rf yarn-error.log
+rm -rf yarn.lock
+rm -rf package-lock.json
