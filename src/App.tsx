@@ -9,10 +9,11 @@ const Login = () => <>Login</>;
 export default function App(): ReactElement {
   return (
     <BrowserRouter basename={repository}>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-      </Routes>
+      </Routes> */}
+      <Home />
     </BrowserRouter>
   );
 }

@@ -34,6 +34,7 @@ const resetStyle = `
   }
   body {
     line-height: 1;
+    color: #2c3333;
   }
   ol, ul {
     list-style: none;
@@ -52,9 +53,8 @@ const resetStyle = `
   }
   * {
     box-sizing: border-box;
-    color: #2c3333;
   }
-  code {
+  p code {
     font-weight: 400;
     font-size: 15px;
     line-height: calc(1.66667);
