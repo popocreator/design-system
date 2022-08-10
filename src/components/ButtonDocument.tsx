@@ -5,7 +5,7 @@ import Article from "@src/layouts/Article";
 import Banner from "@src/layouts/Banner";
 import Post from "@src/layouts/Post";
 import CodeBox from "@src/layouts/CodeBox";
-import Button from "./Button";
+import Button, { ButtonCode } from "./Button";
 
 export default function ButtonDocument() {
   const path = useLocation().pathname;
@@ -38,15 +38,35 @@ export default function ButtonDocument() {
 function Examples() {
   return (
     <Article>
-      <CodeBox component={<Button />} />
+      <h2>Button Example</h2>
+      <p>
+        This is <code>Button</code> component example.
+      </p>
+      <CodeBox component={<Button />} code={ButtonCode} />
     </Article>
   );
 }
 
 function Code() {
-  return <Article>Code</Article>;
+  return (
+    <Article>
+      <h2>Button Code</h2>
+      <p>
+        This is <code>Button</code> component example.
+      </p>
+      <CodeBox component={<Button />} code={ButtonCode} />
+    </Article>
+  );
 }
 
 function Usage() {
-  return <Article>Usage</Article>;
+  return (
+    <Article>
+      <h2>Button Usage</h2>
+      <p>
+        This is <code>Button</code> component example.
+      </p>
+      <CodeBox component={<Button />} code={ButtonCode} />
+    </Article>
+  );
 }

@@ -57,6 +57,8 @@ const CodeView = styled.div`
     margin: 0 !important;
     padding: 0 !important;
     padding-left: 10px !important;
+    padding-top: 4px !important;
+    padding-bottom: 20px !important;
   }
 `;
 
@@ -104,31 +106,10 @@ const CodeTool = styled.button`
 
 type Props = {
   component: ReactNode;
+  code: string;
 };
 
-export default function CodeBox({ component }: Props) {
-  const codeString = `
-  const hello = '';
-  const aaa = () => <Wrapper>
-    <RenderView>{component}</RenderView>
-    <CodeView>
-      <CodeToolList>
-        <CodeTool>
-          <span>Open Codepen</span>
-          <i className="fa-brands fa-codepen"></i>
-        </CodeTool>
-        <CodeTool>
-          <span>Copy code</span>
-          <i className="fa-regular fa-clone"></i>
-        </CodeTool>
-      </CodeToolList>
-      <SyntaxHighlighter language="typescript" style={dark}>
-        {codeString}
-      </SyntaxHighlighter>
-    </CodeView>
-  </Wrapper>
-  `;
-
+export default function CodeBox({ component, code }: Props) {
   return (
     <Wrapper>
       <RenderView>{component}</RenderView>
@@ -144,7 +125,7 @@ export default function CodeBox({ component }: Props) {
           </CodeTool>
         </CodeToolList>
         <SyntaxHighlighter language="jsx" style={oneLight}>
-          {codeString}
+          {code}
         </SyntaxHighlighter>
       </CodeView>
     </Wrapper>
