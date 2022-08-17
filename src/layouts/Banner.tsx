@@ -4,19 +4,33 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
   width: 100%;
-  background-color: rgba(57, 91, 100, 0.05);
-  height: 224px;
+  background-color: rgba(95, 153, 169, 0.05);
+  min-height: 224px;
 `;
 
 const Container = styled.div`
+  /* background-color: rgba(22, 136, 167, 1); */
   width: 100%;
   height: 100%;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0 90px;
+  max-width: 900px;
 `;
 
-const Title = styled.h2`
-  margin-top: 60px;
+const BannerInfo = styled.div`
+  flex-direction: column;
+`;
+
+const BannerImage = styled.img`
+  border: 0;
+  height: '100%';
+  max-width: 384px;
+  margin-left: auto;
+`;
+
+const Title = styled.h2<{ introduction?: boolean }>`
+  /* margin-top: 60px; */
+  margin-top: ${({ introduction }) => (introduction ? '96px' : '60px')};
   font-size: 36px;
   max-width: var(--content-width);
 `;
@@ -27,6 +41,7 @@ const Description = styled.p`
   opacity: 0.6;
   font-weight: 400;
   max-width: var(--content-width);
+  line-height: 1.4;
 `;
 
 const TabList = styled.ul`
@@ -76,15 +91,17 @@ const Tab = styled.ul<{ selected?: boolean }>`
 type Props = {
   title?: string;
   description?: string;
-  basePath: string;
-  routes: any;
+  basePath?: string;
+  routes?: any;
+  imageUrl?: string;
 };
 
 export default function Banner({
   title,
   description,
-  basePath,
-  routes
+  basePath = '/',
+  routes,
+  imageUrl = ''
 }: Props) {
   const path = useLocation().pathname;
 
@@ -95,18 +112,23 @@ export default function Banner({
   return (
     <Wrapper>
       <Container>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-        <TabList>
-          {Object.keys(routes).map((name, i) => (
-            <Tab
-              key={i}
-              selected={selected([routes[name], i === 0 ? basePath : ''])}
-            >
-              <Link to={routes[name]}>{name}</Link>
-            </Tab>
-          ))}
-        </TabList>
+        <BannerInfo>
+          <Title introduction={!!imageUrl}>{title}</Title>
+          <Description>{description}</Description>
+          {!!routes && (
+            <TabList>
+              {Object.keys(routes).map((name, i) => (
+                <Tab
+                  key={i}
+                  selected={selected([routes[name], i === 0 ? basePath : ''])}
+                >
+                  <Link to={routes[name]}>{name}</Link>
+                </Tab>
+              ))}
+            </TabList>
+          )}
+        </BannerInfo>
+        {!!imageUrl && <BannerImage src={imageUrl} />}
       </Container>
     </Wrapper>
   );

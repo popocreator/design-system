@@ -70,6 +70,7 @@ const Menu = styled.li<{ selected?: boolean }>`
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer;
+    color: ${({ selected }) => (selected ? '#395b64' : '#2c3333')};
   }
   & a:hover {
     background-color: #ebecf0;

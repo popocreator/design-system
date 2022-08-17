@@ -7,6 +7,7 @@ import Post from '@src/layouts/Post';
 import { useRecoilState } from 'recoil';
 import { Route, Routes } from 'react-router-dom';
 import ButtonDocument from '@src/components/ButtonDocument';
+import Components from '@src/components';
 
 const Page = styled.section`
   display: flex;
@@ -45,6 +46,8 @@ export default function Home() {
       <Header menus={headerMenu} />
       <Sidebar menus={sidebarMenu} />
       <Routes>
+        {/* Components */}
+        <Route path='/components' element={<Components />} />
         <Route path='/components/button/*' element={<ButtonDocument />} />
       </Routes>
     </Page>

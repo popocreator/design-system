@@ -9,8 +9,9 @@ const Wrapper = styled.section`
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  flex-direction: column;
   margin: 0 90px;
+  flex-direction: row;
+  flex-wrap: wrap;
   & > h2 {
     font-size: 24px;
     margin-top: 40px;
@@ -40,11 +41,10 @@ type Props = {
   children?: ReactNode;
 };
 
-export default function Article({ children }: Props) {
+export default function Introduction({ children }: Props) {
   return (
     <Wrapper>
       <Container>{children}</Container>
-      <Contents />
     </Wrapper>
   );
 }

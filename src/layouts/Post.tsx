@@ -18,7 +18,7 @@ const Container = styled.div`
 `;
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export default function Post({ children }: Props) {
