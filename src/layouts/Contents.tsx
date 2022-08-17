@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.aside`
   display: block;
@@ -13,7 +13,7 @@ const Container = styled.div`
   top: 90px;
   flex-direction: column;
   &:after {
-    content: "";
+    content: '';
     width: 1px;
     height: 100%;
     background-color: #395b64;
@@ -23,7 +23,7 @@ const Container = styled.div`
     opacity: 0.2;
   }
   &:before {
-    content: "";
+    content: '';
     width: 100%;
     height: 30%;
     /* background-color: #8099a155; */
@@ -65,7 +65,7 @@ export default function Contents() {
       <Container>
         <Title>contents</Title>
         <IndexList>
-          <Index data-top="320">
+          <Index data-top='320'>
             <a>Hello1</a>
           </Index>
         </IndexList>

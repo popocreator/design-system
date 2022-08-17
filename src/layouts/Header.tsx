@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 const Wrapper = styled.header`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   z-index: 30;
   position: fixed;
   width: 100%;
@@ -25,7 +25,7 @@ const Wrapper = styled.header`
       rgba(9, 30, 66, 0.08) 1px,
       rgba(9, 30, 66, 0) 4px
     );
-    content: "";
+    content: '';
   }
 `;
 
@@ -35,7 +35,7 @@ const Logo = styled.h1`
     text-decoration: none;
   }
   & span {
-    font-family: "Blinker", sans-serif;
+    font-family: 'Blinker', sans-serif;
     font-size: 24px;
     line-height: 24px;
   }
@@ -76,7 +76,7 @@ const Menu = styled.li<{ selected?: boolean }>`
     color: #395b64;
   }
   & a:after {
-    content: "";
+    content: '';
     height: 3px;
     position: absolute;
     left: 8px;
@@ -85,7 +85,7 @@ const Menu = styled.li<{ selected?: boolean }>`
     border-radius: 3px;
     ${({ selected }) =>
       css`
-        background-color: ${selected ? "#395b64" : "#ffffff"};
+        background-color: ${selected ? '#395b64' : '#ffffff'};
       `}
   }
 `;
@@ -108,7 +108,7 @@ export default function Header({ menus }: Props) {
   return (
     <Wrapper>
       <Logo>
-        <a href="/">
+        <a href='/'>
           <span>POPO</span>
           <span>Design System</span>
         </a>

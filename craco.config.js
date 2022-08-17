@@ -1,11 +1,11 @@
 module.exports = {
   plugins: [
     {
-      plugin: require("craco-alias"),
+      plugin: require('craco-alias'),
       options: {
-        source: "tsconfig",
-        baseUrl: ".",
-        tsConfigPath: "tsconfig.paths.json",
+        source: 'tsconfig',
+        baseUrl: '.',
+        tsConfigPath: 'tsconfig.paths.json',
         debug: false
       }
     }

@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
-import styled from "styled-components";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink, faRocket } from "@fortawesome/free-solid-svg-icons";
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 const Wrapper = styled.div`
   z-index: 1;
@@ -124,7 +124,7 @@ export default function CodeBox({ component, code }: Props) {
             <FontAwesomeIcon icon={faLink} />
           </CodeTool>
         </CodeToolList>
-        <SyntaxHighlighter language="jsx" style={oneLight}>
+        <SyntaxHighlighter language='jsx' style={oneLight}>
           {code}
         </SyntaxHighlighter>
       </CodeView>

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Wrapper = styled.section`
   width: 100%;
@@ -36,7 +36,7 @@ const TabList = styled.ul`
   position: relative;
   max-width: calc(100% - var(--index-width));
   &:before {
-    content: "";
+    content: '';
     border-radius: 2px;
     bottom: 0px;
     margin: 0px;
@@ -57,10 +57,10 @@ const Tab = styled.ul<{ selected?: boolean }>`
     text-decoration: none;
     text-transform: capitalize;
     padding: 8px 12px;
-    color: ${({ selected }) => (selected ? "#395b64" : "#8099a1")};
+    color: ${({ selected }) => (selected ? '#395b64' : '#8099a1')};
   }
   & > a:before {
-    content: "";
+    content: '';
     border-radius: 2px;
     bottom: 0px;
     margin: 0px;
@@ -69,7 +69,7 @@ const Tab = styled.ul<{ selected?: boolean }>`
     left: 4px;
     right: 4px;
     height: 2px;
-    background-color: ${({ selected }) => (selected ? "#395b64" : "#ebecf0")};
+    background-color: ${({ selected }) => (selected ? '#395b64' : '#ebecf0')};
   }
 `;
 
@@ -101,7 +101,7 @@ export default function Banner({
           {Object.keys(routes).map((name, i) => (
             <Tab
               key={i}
-              selected={selected([routes[name], i === 0 ? basePath : ""])}
+              selected={selected([routes[name], i === 0 ? basePath : ''])}
             >
               <Link to={routes[name]}>{name}</Link>
             </Tab>

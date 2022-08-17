@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import React, { ReactElement } from 'react';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
-const repository = "/";
+const repository = '/';
 
 const Login = () => <>Login</>;
 

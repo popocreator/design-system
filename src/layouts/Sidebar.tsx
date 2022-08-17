@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Wrapper = styled.aside`
   z-index: 20;
@@ -27,7 +27,7 @@ const Title = styled.h2`
 `;
 
 const MenuList = styled.ul<{ inner?: boolean }>`
-  margin-top: ${({ inner }) => (inner ? "0px" : "10px")};
+  margin-top: ${({ inner }) => (inner ? '0px' : '10px')};
 `;
 
 const Menu = styled.li<{ inner?: boolean; selected?: boolean }>`
@@ -39,8 +39,8 @@ const Menu = styled.li<{ inner?: boolean; selected?: boolean }>`
     font-size: 14px;
     cursor: pointer;
     color: #2c3333;
-    padding-left: ${({ inner }) => (inner ? "45px" : "30px")};
-    background-color: ${({ selected }) => (selected ? "#2c333311" : "#ffffff")};
+    padding-left: ${({ inner }) => (inner ? '45px' : '30px')};
+    background-color: ${({ selected }) => (selected ? '#2c333311' : '#ffffff')};
   }
   & > a:hover {
     background-color: #2c333311;

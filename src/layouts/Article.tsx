@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
-import styled from "styled-components";
-import Contents from "./Contents";
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
+import Contents from './Contents';
 
 const Wrapper = styled.section`
   width: 100%;
