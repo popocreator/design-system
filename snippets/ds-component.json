@@ -1,0 +1,16 @@
+{
+  "Design System Component": {
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
+    "prefix": "dsc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export default function $TM_FILENAME_BASE() {",
+      "  return <div>$TM_FILENAME_BASE</div>;",
+      "}",
+      "",
+      "export const $TM_FILENAME_BASE\\Code = ``;"
+    ],
+    "description": "Design System Component page template"
+  }
+}
