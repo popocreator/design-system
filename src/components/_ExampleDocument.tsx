@@ -1,13 +1,13 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-import Article from "@src/layouts/Article";
-import Banner from "@src/layouts/Banner";
-import Post from "@src/layouts/Post";
+import Article from '@src/layouts/Article';
+import Banner from '@src/layouts/Banner';
+import Post from '@src/layouts/Post';
 
 export default function _ExampleDocument() {
   const path = useLocation().pathname;
-  const basePath = "/components/button";
+  const basePath = '/components/button';
   const routes = {
     examples: `${basePath}/examples`,
     code: `${basePath}/code`,
@@ -20,12 +20,7 @@ export default function _ExampleDocument() {
 
   return (
     <Post>
-      <Banner
-        title="Button"
-        description="An avatar is a visual representation of a user or entity."
-        basePath="/components/button"
-        routes={routes}
-      />
+      <Banner title='' description='' basePath={basePath} routes={routes} />
       {selected([basePath, routes.examples]) && <Examples />}
       {selected([routes.code]) && <Code />}
       {selected([routes.usage]) && <Usage />}
