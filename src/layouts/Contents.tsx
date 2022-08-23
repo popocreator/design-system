@@ -6,6 +6,7 @@ const Wrapper = styled.aside`
   width: var(--index-width);
   margin-left: auto;
   padding-top: 30px;
+  flex: none;
 `;
 
 const Container = styled.div`

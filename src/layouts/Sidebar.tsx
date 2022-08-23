@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.aside`
@@ -59,18 +59,19 @@ type Props = {
 };
 
 export default function Sidebar({ menus }: Props) {
+  const path = useLocation().pathname;
   return (
     <Wrapper>
       <Container>
         <Title>Components</Title>
         <MenuList>
           {menus.map((menu, key) => (
-            <Menu key={key} selected={key === 2}>
+            <Menu key={key} selected={menu.to === path}>
               <Link to={menu.to}>{menu.name}</Link>
               {menu.children && (
                 <MenuList inner>
                   {menu.children.map((childMenu, childKey) => (
-                    <Menu inner key={childKey}>
+                    <Menu inner key={childKey} selected={childMenu.to === path}>
                       <Link to={childMenu.to}>{childMenu.name}</Link>
                     </Menu>
                   ))}

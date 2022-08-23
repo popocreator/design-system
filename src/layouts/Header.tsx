@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.header`
@@ -106,6 +106,7 @@ type Props = {
 };
 
 export default function Header({ menus }: Props) {
+  const path = useLocation().pathname;
   return (
     <Wrapper>
       <Logo>
@@ -116,7 +117,7 @@ export default function Header({ menus }: Props) {
       </Logo>
       <MenuList>
         {menus.map((menu, key) => (
-          <Menu key={key} selected={key === 2}>
+          <Menu key={key} selected={menu.to === path}>
             <Link title={menu.name} to={menu.to}>
               {menu.name}
             </Link>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Wrapper = styled.section`
   width: 100%;
@@ -8,17 +8,24 @@ const Wrapper = styled.section`
   min-height: 224px;
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ introduction?: boolean }>`
   /* background-color: rgba(22, 136, 167, 1); */
   width: 100%;
   height: 100%;
   flex-direction: row;
   margin: 0 90px;
-  max-width: 900px;
+  ${({ introduction }) => {
+    if (!introduction) {
+      return css`
+        margin-right: 0;
+      `;
+    }
+  }}
 `;
 
 const BannerInfo = styled.div`
   flex-direction: column;
+  width: 100%;
 `;
 
 const BannerImage = styled.img`
@@ -49,7 +56,6 @@ const TabList = styled.ul`
   margin-top: auto;
   flex-direction: row;
   position: relative;
-  max-width: calc(100% - var(--index-width));
   &:before {
     content: '';
     border-radius: 2px;
@@ -64,7 +70,7 @@ const TabList = styled.ul`
   }
 `;
 
-const Tab = styled.ul<{ selected?: boolean }>`
+const Tab = styled.li<{ selected?: boolean }>`
   position: relative;
   & > a {
     position: relative;
@@ -111,7 +117,7 @@ export default function Banner({
 
   return (
     <Wrapper>
-      <Container>
+      <Container introduction={!!imageUrl}>
         <BannerInfo>
           <Title introduction={!!imageUrl}>{title}</Title>
           <Description>{description}</Description>
