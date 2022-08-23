@@ -110,10 +110,10 @@ export default function Header({ menus }: Props) {
   return (
     <Wrapper>
       <Logo>
-        <a href='/'>
+        <Link to='/'>
           <span>POPO</span>
           <span>Design System</span>
-        </a>
+        </Link>
       </Logo>
       <MenuList>
         {menus.map((menu, key) => (
