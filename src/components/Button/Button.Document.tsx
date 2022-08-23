@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 import Article from '@src/layouts/Article';
 import Banner from '@src/layouts/Banner';
 import Post from '@src/layouts/Post';
 import CodeBox from '@src/layouts/CodeBox';
-import Button, { ButtonCode } from './Button';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { contentsState, Index } from '@src/store';
+
+import useDocumentContents from '@src/components/useDocumentContents';
+import Button from '@src/components/Button';
+import ButtonCode from '@src/components/Button/Button.Code';
 
 export default function ButtonDocument() {
   const path = useLocation().pathname;
@@ -27,7 +28,7 @@ export default function ButtonDocument() {
       <Banner
         title='Button'
         description='An avatar is a visual representation of a user or entity.'
-        basePath='/components/button'
+        basePath={basePath}
         routes={routes}
       />
       {selected([basePath, routes.examples]) && <Examples />}
@@ -37,29 +38,11 @@ export default function ButtonDocument() {
   );
 }
 
-function contentsByTab(tabId: string) {
-  const contents: Index[] = [];
-  const headingList = document.querySelectorAll(
-    `#${tabId} h1, #${tabId} h2, #${tabId} h3, #${tabId} h4`
-  );
-  headingList.forEach((h, i) => {
-    h.id = 'hc-' + i;
-    contents.push({
-      id: h.id,
-      title: h.innerHTML,
-      top: h.getBoundingClientRect().top
-    });
-  });
-  return contents;
-}
-
 function Examples() {
-  const setContents = useSetRecoilState(contentsState);
-  useEffect(() => {
-    setContents(contentsByTab('examples'));
-  }, []);
+  const tabId = 'examples';
+  useDocumentContents(tabId);
   return (
-    <Article id='examples'>
+    <Article id={tabId}>
       <h2>Button Example</h2>
       <h3>부제목</h3>
       <p>
@@ -74,12 +57,10 @@ function Examples() {
 }
 
 function Code() {
-  const setContents = useSetRecoilState(contentsState);
-  useEffect(() => {
-    setContents(contentsByTab('code'));
-  }, []);
+  const tabId = 'code';
+  useDocumentContents(tabId);
   return (
-    <Article id='code'>
+    <Article id={tabId}>
       <h2>Button Code</h2>
       <p>
         This is <code>Button</code> component example.
@@ -90,12 +71,10 @@ function Code() {
 }
 
 function Usage() {
-  const setContents = useSetRecoilState(contentsState);
-  useEffect(() => {
-    setContents(contentsByTab('usage'));
-  }, []);
+  const tabId = 'usage';
+  useDocumentContents(tabId);
   return (
-    <Article id='usage'>
+    <Article id={tabId}>
       <h2>Button Usage</h2>
       <p>
         This is <code>Button</code> component example.

@@ -1,26 +1,12 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 
-import Article from '@src/layouts/Article';
 import Banner from '@src/layouts/Banner';
 import Post from '@src/layouts/Post';
-import CodeBox from '@src/layouts/CodeBox';
 import Introduction from '@src/layouts/Introduction';
 import Card from '@src/layouts/Card';
 
 export default function Components() {
-  const path = useLocation().pathname;
-  const basePath = '/components/button';
-  const routes = {
-    examples: `${basePath}/examples`,
-    code: `${basePath}/code`,
-    usage: `${basePath}/usage`
-  };
-
-  const selected = (_routes: string[]) => {
-    return _routes.includes(path);
-  };
-
+  const basePath = '/components';
   return (
     <Post>
       <Banner

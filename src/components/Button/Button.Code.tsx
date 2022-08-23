@@ -1,10 +1,4 @@
-import React from 'react';
-
-export default function Button() {
-  return <button>Button</button>;
-}
-
-export const ButtonCode = `
+const ButtonCode = `
   const hello = '';
   const aaa = () => <Wrapper>
     <RenderView>{component}</RenderView>
@@ -25,3 +19,5 @@ export const ButtonCode = `
     </CodeView>
   </Wrapper>
 `;
+
+export default ButtonCode;

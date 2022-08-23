@@ -6,7 +6,7 @@ import Sidebar from '@src/layouts/Sidebar';
 import Post from '@src/layouts/Post';
 import { useRecoilState } from 'recoil';
 import { Route, Routes } from 'react-router-dom';
-import ButtonDocument from '@src/components/ButtonDocument';
+import ButtonDocument from '@src/components/Button/Button.Document';
 import Components from '@src/components';
 
 const Page = styled.section`
@@ -14,31 +14,24 @@ const Page = styled.section`
 `;
 
 export default function Home() {
-  const headerMenu = [
-    { id: 'h-1', name: 'Brand', to: '/brand' },
-    { id: 'h-2', name: 'Foundations', to: '/foundations' },
-    { id: 'h-3', name: 'Content', to: '/content' },
-    { id: 'h-4', name: 'Components', to: '/components' },
-    { id: 'h-5', name: 'Patterns', to: '/patterns' },
-    { id: 'h-6', name: 'Resources', to: '/resources' }
-  ];
+  const headerMenu = [{ id: 'h-4', name: 'Components', to: '/components' }];
 
   const sidebarMenu = [
     {
-      id: 'h-1',
-      name: 'Brand',
-      to: '/brand',
-      children: [
-        { id: 'hb-1', name: 'Foundations', to: '/foundations' },
-        { id: 'hb-2', name: 'Foundations', to: '/foundations' },
-        { id: 'hb-3', name: 'Foundations', to: '/foundations' }
-      ]
+      id: 'h-4-1',
+      name: 'Avatar',
+      to: '/components/avatar'
     },
-    { id: 'h-2', name: 'Foundations', to: '/foundations' },
-    { id: 'h-3', name: 'Content', to: '/content' },
-    { id: 'h-4', name: 'Components', to: '/components' },
-    { id: 'h-5', name: 'Patterns', to: '/patterns' },
-    { id: 'h-6', name: 'Resources', to: '/resources' }
+    {
+      id: 'h-4-2',
+      name: 'Avatar group',
+      to: '/components/avatar-group'
+    },
+    {
+      id: 'h-4-2',
+      name: 'Badge',
+      to: '/components/badge'
+    }
   ];
 
   return (

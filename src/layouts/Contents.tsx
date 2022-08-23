@@ -40,7 +40,7 @@ const Container = styled.div`
 
 const Title = styled.h2`
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 11px;
   opacity: 0.7;
   letter-spacing: 1.2px;
@@ -59,6 +59,14 @@ const Index = styled.li`
     font-size: 11px;
     color: #2c333399;
     cursor: pointer;
+    &.h2 {
+    }
+    &.h3 {
+      padding-left: 15px;
+    }
+    &.h4 {
+      padding-left: 30px;
+    }
   }
 `;
 
@@ -77,7 +85,9 @@ export default function Contents() {
         <IndexList>
           {contents.map((c, i) => (
             <Index key={i} onClick={() => scrollTo(c.top)}>
-              <a>{c.title}</a>
+              <a className={c.id.split('-').pop()?.toLocaleLowerCase()}>
+                {c.title}
+              </a>
             </Index>
           ))}
         </IndexList>
