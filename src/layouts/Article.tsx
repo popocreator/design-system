@@ -37,12 +37,13 @@ const Container = styled.div`
 `;
 
 type Props = {
+  id?: string;
   children?: ReactNode;
 };
 
-export default function Article({ children }: Props) {
+export default function Article({ id, children }: Props) {
   return (
-    <Wrapper>
+    <Wrapper id={id}>
       <Container>{children}</Container>
       <Contents />
     </Wrapper>

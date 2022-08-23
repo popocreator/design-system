@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import Article from '@src/layouts/Article';
@@ -6,6 +6,8 @@ import Banner from '@src/layouts/Banner';
 import Post from '@src/layouts/Post';
 import CodeBox from '@src/layouts/CodeBox';
 import Button, { ButtonCode } from './Button';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { contentsState, Index } from '@src/store';
 
 export default function ButtonDocument() {
   const path = useLocation().pathname;
@@ -36,8 +38,23 @@ export default function ButtonDocument() {
 }
 
 function Examples() {
+  const setContents = useSetRecoilState(contentsState);
+  useEffect(() => {
+    const contents: Index[] = [];
+    const headingList = document.querySelectorAll(
+      '#examples h1, #examples h2, #examples h3, #examples h4'
+    );
+    headingList.forEach((h) => {
+      contents.push({
+        id: h.id,
+        title: h.innerHTML,
+        top: h.getBoundingClientRect().top
+      });
+    });
+    setContents(contents);
+  }, []);
   return (
-    <Article>
+    <Article id='examples'>
       <h2>Button Example</h2>
       <h3>부제목</h3>
       <p>
@@ -52,8 +69,23 @@ function Examples() {
 }
 
 function Code() {
+  const setContents = useSetRecoilState(contentsState);
+  useEffect(() => {
+    const contents: Index[] = [];
+    const headingList = document.querySelectorAll(
+      '#code h1, #code h2, #code h3, #code h4'
+    );
+    headingList.forEach((h) => {
+      contents.push({
+        id: h.id,
+        title: h.innerHTML,
+        top: h.getBoundingClientRect().top
+      });
+    });
+    setContents(contents);
+  }, []);
   return (
-    <Article>
+    <Article id='code'>
       <h2>Button Code</h2>
       <p>
         This is <code>Button</code> component example.
@@ -64,8 +96,25 @@ function Code() {
 }
 
 function Usage() {
+  const setContents = useSetRecoilState(contentsState);
+  useEffect(() => {
+    const contents: Index[] = [];
+    const headingList = document.querySelectorAll(
+      '#usage h1, #usage h2, #usage h3, #usage h4'
+    );
+    headingList.forEach((h, i) => {
+      h.id = 'h-' + i;
+      contents.push({
+        id: h.id,
+        title: h.innerHTML,
+        top: h.getBoundingClientRect().top
+      });
+    });
+    console.log('usage', contents);
+    setContents(contents);
+  }, []);
   return (
-    <Article>
+    <Article id='usage'>
       <h2>Button Usage</h2>
       <p>
         This is <code>Button</code> component example.

@@ -1,5 +1,6 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
 import App from './App';
 import GlobalStyle from './GlobalStyle';
 import Head from './layouts/Head';
@@ -13,7 +14,9 @@ if (rootElement) {
     <StrictMode>
       <Head />
       <GlobalStyle />
-      <App />
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
     </StrictMode>
   );
 }

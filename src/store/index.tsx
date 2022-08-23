@@ -1,16 +1,12 @@
 import { atom } from 'recoil';
 
-export const categoryState = atom({
-  key: 'categoryState',
-  default: ''
-});
+export interface Index {
+  id: string;
+  title: string;
+  top: number;
+}
 
-export const postState = atom({
-  key: 'postState',
-  default: ''
-});
-
-export const tabState = atom({
-  key: 'tabState',
-  default: ''
+export const contentsState = atom<Index[]>({
+  key: 'contentsState',
+  default: []
 });

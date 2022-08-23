@@ -1,4 +1,6 @@
+import { contentsState } from '@src/store';
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 const Wrapper = styled.aside`
@@ -61,14 +63,23 @@ const Index = styled.li`
 `;
 
 export default function Contents() {
+  const contents = useRecoilValue(contentsState);
+
+  const scrollTo = (top: number) => {
+    const headerHeight = 60;
+    window.scrollTo(0, top - headerHeight);
+  };
+
   return (
     <Wrapper>
       <Container>
         <Title>contents</Title>
         <IndexList>
-          <Index data-top='320'>
-            <a>Hello1</a>
-          </Index>
+          {contents.map((c, i) => (
+            <Index key={i} onClick={() => scrollTo(c.top)}>
+              <a>{c.title}</a>
+            </Index>
+          ))}
         </IndexList>
       </Container>
     </Wrapper>
