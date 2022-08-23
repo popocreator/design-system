@@ -37,21 +37,26 @@ export default function ButtonDocument() {
   );
 }
 
+function contentsByTab(tabId: string) {
+  const contents: Index[] = [];
+  const headingList = document.querySelectorAll(
+    `#${tabId} h1, #${tabId} h2, #${tabId} h3, #${tabId} h4`
+  );
+  headingList.forEach((h, i) => {
+    h.id = 'hc-' + i;
+    contents.push({
+      id: h.id,
+      title: h.innerHTML,
+      top: h.getBoundingClientRect().top
+    });
+  });
+  return contents;
+}
+
 function Examples() {
   const setContents = useSetRecoilState(contentsState);
   useEffect(() => {
-    const contents: Index[] = [];
-    const headingList = document.querySelectorAll(
-      '#examples h1, #examples h2, #examples h3, #examples h4'
-    );
-    headingList.forEach((h) => {
-      contents.push({
-        id: h.id,
-        title: h.innerHTML,
-        top: h.getBoundingClientRect().top
-      });
-    });
-    setContents(contents);
+    setContents(contentsByTab('examples'));
   }, []);
   return (
     <Article id='examples'>
@@ -71,18 +76,7 @@ function Examples() {
 function Code() {
   const setContents = useSetRecoilState(contentsState);
   useEffect(() => {
-    const contents: Index[] = [];
-    const headingList = document.querySelectorAll(
-      '#code h1, #code h2, #code h3, #code h4'
-    );
-    headingList.forEach((h) => {
-      contents.push({
-        id: h.id,
-        title: h.innerHTML,
-        top: h.getBoundingClientRect().top
-      });
-    });
-    setContents(contents);
+    setContents(contentsByTab('code'));
   }, []);
   return (
     <Article id='code'>
@@ -98,20 +92,7 @@ function Code() {
 function Usage() {
   const setContents = useSetRecoilState(contentsState);
   useEffect(() => {
-    const contents: Index[] = [];
-    const headingList = document.querySelectorAll(
-      '#usage h1, #usage h2, #usage h3, #usage h4'
-    );
-    headingList.forEach((h, i) => {
-      h.id = 'h-' + i;
-      contents.push({
-        id: h.id,
-        title: h.innerHTML,
-        top: h.getBoundingClientRect().top
-      });
-    });
-    console.log('usage', contents);
-    setContents(contents);
+    setContents(contentsByTab('usage'));
   }, []);
   return (
     <Article id='usage'>
