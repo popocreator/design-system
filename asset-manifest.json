@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/design-system/static/js/main.fb1db4fc.js",
+    "main.js": "/design-system/static/js/main.2ec2474f.js",
     "index.html": "/design-system/index.html",
-    "main.fb1db4fc.js.map": "/design-system/static/js/main.fb1db4fc.js.map"
+    "main.2ec2474f.js.map": "/design-system/static/js/main.2ec2474f.js.map"
   },
   "entrypoints": [
-    "static/js/main.fb1db4fc.js"
+    "static/js/main.2ec2474f.js"
   ]
 }
