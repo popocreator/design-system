@@ -5,11 +5,10 @@ import { Route, Routes } from 'react-router-dom';
 import Header from '@src/layouts/Header';
 import Sidebar from '@src/layouts/Sidebar';
 
-import Components from '@src/components';
-
 import Brand from '@src/navigations/Brand';
 import Foundations from '@src/navigations/Foundations';
 import Content from '@src/navigations/Content';
+import Components from '@src/navigations/Components';
 import Patterns from '@src/navigations/Patterns';
 import Resources from '@src/navigations/Resources';
 import ButtonDocument from '@src/components/Button/Button.Document';
