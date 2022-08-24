@@ -1,19 +1,16 @@
 import React, { ReactElement } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import Landing from './pages/Landing';
+import DesignSystem from './pages/DesignSystem';
 
 const repository = '/';
-
-const Login = () => <>Login</>;
-
 export default function App(): ReactElement {
   return (
     <BrowserRouter basename={repository}>
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-      </Routes> */}
-      <Home />
+      <Routes>
+        <Route path='/ds/*' element={<DesignSystem />} />
+        <Route path='/' element={<Landing />} />
+      </Routes>
     </BrowserRouter>
   );
 }

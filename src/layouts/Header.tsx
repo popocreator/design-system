@@ -1,5 +1,7 @@
+import { linkState } from '@src/store';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.header`
@@ -101,12 +103,13 @@ type IMenu = {
   to: string;
 };
 
-type Props = {
-  menus: IMenu[];
-};
-
-export default function Header({ menus }: Props) {
+export default function Header() {
   const path = useLocation().pathname;
+  const relatedPath = (path: string, to: string) => {
+    return path.indexOf(to + '/') !== -1 || path === to;
+  };
+  const links = useRecoilValue(linkState);
+
   return (
     <Wrapper>
       <Logo>
@@ -116,8 +119,8 @@ export default function Header({ menus }: Props) {
         </Link>
       </Logo>
       <MenuList>
-        {menus.map((menu, key) => (
-          <Menu key={key} selected={menu.to === path}>
+        {links.navigations.map((menu, key) => (
+          <Menu key={key} selected={relatedPath(path, menu.to)}>
             <Link title={menu.name} to={menu.to}>
               {menu.name}
             </Link>

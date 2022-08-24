@@ -4,6 +4,7 @@ import Contents from './Contents';
 
 const Wrapper = styled.section`
   width: 100%;
+  margin-top: 30px;
 `;
 
 const Container = styled.div`

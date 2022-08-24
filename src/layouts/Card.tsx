@@ -1,7 +1,11 @@
+import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Wrapper = styled.a`
+const Wrapper = styled(Link)`
+  text-decoration: none;
   width: calc(33.3333% - 10px);
   margin-right: 15px;
   margin-bottom: 15px;
@@ -21,11 +25,47 @@ const Wrapper = styled.a`
   }
 `;
 
+const Icon = styled.span`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #395b64;
+  color: #fff;
+`;
+
+const Thumbnail = styled.img``;
+
+const Title = styled.h2`
+  margin-top: 16px;
+  font-size: 24px;
+`;
+
+const Description = styled.h2`
+  margin-top: 8px;
+  overflow-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 400;
+`;
+
 interface Props {
-  title: '';
-  description: '';
+  title: string;
+  description: string;
+  to: string;
 }
 
-export default function Card({}: Props) {
-  return <Wrapper>Card</Wrapper>;
+export default function Card({ title, description, to }: Props) {
+  return (
+    <Wrapper to={to}>
+      <Icon>
+        <FontAwesomeIcon icon={faLink} />
+      </Icon>
+      <Thumbnail />
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+    </Wrapper>
+  );
 }

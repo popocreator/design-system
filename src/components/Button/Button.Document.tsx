@@ -1,5 +1,5 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import Article from '@src/layouts/Article';
 import Banner from '@src/layouts/Banner';
@@ -11,16 +11,11 @@ import Button from '@src/components/Button';
 import ButtonCode from '@src/components/Button/Button.Code';
 
 export default function ButtonDocument() {
-  const path = useLocation().pathname;
-  const basePath = '/components/button';
+  const basePath = '/ds/components/button';
   const routes = {
     examples: `${basePath}/examples`,
     code: `${basePath}/code`,
     usage: `${basePath}/usage`
-  };
-
-  const selected = (_routes: string[]) => {
-    return _routes.includes(path);
   };
 
   return (
@@ -31,9 +26,12 @@ export default function ButtonDocument() {
         basePath={basePath}
         routes={routes}
       />
-      {selected([basePath, routes.examples]) && <Examples />}
-      {selected([routes.code]) && <Code />}
-      {selected([routes.usage]) && <Usage />}
+      <Routes>
+        <Route path='/' element={<Examples />} />
+        <Route path='/examples' element={<Examples />} />
+        <Route path='/code' element={<Code />} />
+        <Route path='/usage' element={<Usage />} />
+      </Routes>
     </Post>
   );
 }
