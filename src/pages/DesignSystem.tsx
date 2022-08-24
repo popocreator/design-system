@@ -18,7 +18,7 @@ const Page = styled.section`
   display: flex;
 `;
 
-export default function Main() {
+export default function DesignSystem() {
   return (
     <Page>
       <Header />
@@ -26,17 +26,27 @@ export default function Main() {
       <Routes>
         {/* Brand */}
         <Route path='/brand' element={<Brand />} />
+        {/* <Route path='/brand/-/*' element={<ButtonDocument />} /> */}
+
         {/* Foundations */}
         <Route path='/foundations' element={<Foundations />} />
+        {/* <Route path='/foundations/-/*' element={<ButtonDocument />} /> */}
+
         {/* Content */}
         <Route path='/content' element={<Content />} />
+        {/* <Route path='/components/-/*' element={<ButtonDocument />} /> */}
+
         {/* Components */}
         <Route path='/components' element={<Components />} />
         <Route path='/components/button/*' element={<ButtonDocument />} />
+
         {/* Patterns */}
         <Route path='/patterns' element={<Patterns />} />
+        {/* <Route path='/patterns/-/*' element={<ButtonDocument />} /> */}
+
         {/* Resources */}
         <Route path='/resources' element={<Resources />} />
+        {/* <Route path='/resources/-/*' element={<ButtonDocument />} /> */}
       </Routes>
     </Page>
   );

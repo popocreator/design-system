@@ -113,7 +113,7 @@ export default function Header() {
   return (
     <Wrapper>
       <Logo>
-        <Link to='/'>
+        <Link to='/ds'>
           <span>POPO</span>
           <span>Design System</span>
         </Link>
