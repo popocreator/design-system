@@ -1,5 +1,5 @@
 {
-  "name": "template-react",
+  "name": "design-system",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ux-monster/template-react.git"
+    "url": "git+https://github.com/popocreator/design-system.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ux-monster/template-react/issues"
+    "url": "https://github.com/popocreator/design-system/issues"
   },
-  "homepage": "https://ux-monster.github.io/template-react",
+  "homepage": "https://popocreator.github.io/design-system",
   "devDependencies": {
     "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.5",

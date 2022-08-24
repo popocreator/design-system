@@ -24,10 +24,9 @@ const Title = styled.h2`
   font-weight: lighter;
   p {
     line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
     @media (max-width: 720px) {
-      .title {
-        font-size: 36px;
-      }
+      font-size: 36px;
     }
   }
 `;

@@ -3,7 +3,7 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import Landing from './pages/Landing';
 import DesignSystem from './pages/DesignSystem';
 
-const repository = '/';
+const repository = '/design-system';
 export default function App(): ReactElement {
   return (
     <BrowserRouter basename={repository}>
